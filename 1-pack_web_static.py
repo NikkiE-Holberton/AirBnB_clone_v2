@@ -1,10 +1,13 @@
 #!/usr/bin/python3
-""" Compressing with fabric, web static to web01/02 """
+""" Fabric File """
+
 from fabric.api import local
 from datetime import datetime
 
+
 def do_pack():
-    """ Pack up the front end """
+    """ Pack up web_static dir """
+
     try:
         now = datetime.now()
 
@@ -13,6 +16,8 @@ def do_pack():
 
         local("mkdir -p versions")
         local("tar -czvf " + tarArchivePath + " web_static")
+
         return tarArchivePath
+
     except:
         return None
