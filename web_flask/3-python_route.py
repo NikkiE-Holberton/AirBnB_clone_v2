@@ -23,8 +23,9 @@ def cfile(text):
     return 'C {}'.format(text.replace("_", " "))
 
 
+@app.route('/python/')
 @app.route('/python/<text>')
-def pyfile(text=is cool):
+def pyfile(text="is cool"):
     return 'Python {}'.format(text.replace("_", " "))
 
 if __name__ == "__main__":
