@@ -22,20 +22,21 @@ class DBStorage():
     __session = None
 
     bnb_classes = {
-        'User': User, 'Place': Place,
-        'State': State, 'City': City, 'Amenity': Amenity,
-        'Review': Review
-    }
+                'User': User, 'Place': Place,
+                'State': State, 'City': City, 'Amenity': Amenity,
+                'Review': Review
+              }
 
     def __init__(self):
         # do we want to maniuplate the instance version of the attribute
         # or the class version, for both of these (self, or db)
         self.__engine = create_engine(
-            'mysql+mysqldb://{}:{}@{}/{}'.format(getenv('HBNB_MYSQL_USER'),
-                                                 getenv('HBNB_MYSQL_PWD'),
-                                                 getenv('HBNB_MYSQL_HOST'),
-                                                 getenv('HBNB_MYSQL_DB'),
-                                                 pool_pre_ping=True))
+                                      'mysql+mysqldb://{}:{}@{}/{}'.format(
+                                                                            getenv('HBNB_MYSQL_USER'),
+                                                                            getenv('HBNB_MYSQL_PWD'),
+                                                                            getenv('HBNB_MYSQL_HOST'),
+                                                                            getenv('HBNB_MYSQL_DB'),
+                                                                            pool_pre_ping=True))
         if getenv('HBNB_ENV') == 'test':
             # if in the test directory, clear existing tables(for this session)
             Base.metadata.drop_all(self.__engine)
