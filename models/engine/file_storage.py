@@ -11,14 +11,15 @@ from models.review import Review
 
 
 class FileStorage:
+
     """This class manages storage of hbnb models in JSON format"""
     __file_path = 'file.json'
     __objects = {}
     classes = {
-                'BaseModel': BaseModel, 'User': User, 'Place': Place,
-                'State': State, 'City': City, 'Amenity': Amenity,
-                'Review': Review
-              }
+        'BaseModel': BaseModel, 'User': User, 'Place': Place,
+        'State': State, 'City': City, 'Amenity': Amenity,
+        'Review': Review
+    }
 
     def all(self, cls=None):
         """Returns a dictionary of models currently in storage"""
@@ -63,7 +64,9 @@ class FileStorage:
             with open(FileStorage.__file_path, 'r') as f:
                 temp = json.load(f)
                 for key, val in temp.items():
-                        self.all()[key] = FileStorage.classes[val['__class__']](**val)
+                        self.all()[key] = FileStorage.classes[
+                            val[
+                                '__class__']](**val)
         except FileNotFoundError:
             pass
 
