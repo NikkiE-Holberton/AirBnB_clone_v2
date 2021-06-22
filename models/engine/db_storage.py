@@ -32,11 +32,11 @@ class DBStorage():
         # or the class version, for both of these (self, or db)
         self.__engine = create_engine(
                                       'mysql+mysqldb://{}:{}@{}/{}'.format(
-                                                                            getenv('HBNB_MYSQL_USER'),
-                                                                            getenv('HBNB_MYSQL_PWD'),
-                                                                            getenv('HBNB_MYSQL_HOST'),
-                                                                            getenv('HBNB_MYSQL_DB'),
-                                                                            pool_pre_ping=True))
+                                          getenv('HBNB_MYSQL_USER'),
+                                          getenv('HBNB_MYSQL_PWD'),
+                                          getenv('HBNB_MYSQL_HOST'),
+                                          getenv('HBNB_MYSQL_DB'),
+                                          pool_pre_ping=True))
         if getenv('HBNB_ENV') == 'test':
             # if in the test directory, clear existing tables(for this session)
             Base.metadata.drop_all(self.__engine)
