@@ -40,7 +40,7 @@ def nmbhtml(n):
 
 
 @app.route('/number_odd_or_even/<int:n>')
-def nmbhtml(n):
+def nmbev_oddhtml(n):
     return render_template('6-number_odd_or_even.html', value=n)
 
 
