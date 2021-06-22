@@ -5,7 +5,7 @@ from models.engine.file_storage import FileStorage
 from sqlalchemy import create_engine
 from sqlalchemy import Column, Integer, String
 from os import getenv
-from sqlalchemy.orm import scoped_session, sessionmaker, Session
+from sqlalchemy.orm import scoped_session, sessionmaker
 from sqlalchemy.org.session import Session
 from models.amenity import Amenity
 from models.city import City
